@@ -37,7 +37,12 @@ namespace Vueling.Common.Logic.Utils
 
         public static string GetFilePath<T>(DataTypeAccess dataTypeAccess)
         {
-            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), typeof(T).Name + "." + dataTypeAccess.ToString());
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), new StringBuilder(typeof(T).Name).Append(".").Append(dataTypeAccess.ToString()).ToString());
+        }
+
+        public static string GetLogPath()
+        {
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), LoadVariable("LogFileName"));
         }
 
     }

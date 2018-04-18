@@ -2,7 +2,5 @@
 
 namespace Vueling.DataAccess.DAO.Formats
 {
-    public interface IFormat<T> where T : IVuelingModelObject
-    {
-    }
+    public interface IFormat<T> : ISelect<T>, IInsert<T>, IUpdate<T>, IDelete<T> where T : IVuelingModelObject { }
 }
